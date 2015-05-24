@@ -8,3 +8,4 @@ sorl-thumbnail==12.2
 django-wysiwyg-redactor==0.4.7
 
 
+
