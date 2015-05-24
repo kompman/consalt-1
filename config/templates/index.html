@@ -1,0 +1,528 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>{{ config.site_name|striptags }}</title>
+  <meta name="keyword" content="">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/leslie.js' %}"></script>
+</head>
+<body>
+<!-- Попап консультация -->
+<div class="disabled">
+  <div class="popup">
+    <div class="form3">
+      <p class="form_title3" style="margin-bottom:20px;">ПОЛУЧИТЕ БЕСПЛАТНУЮ</br><span>консультацию специалиста</span>
+      </p>
+      <input name="name_popup_1" type="text" placeholder="Введите Ваше имя">
+      <input name="phone_popup_1" type="text" placeholder="Введите Ваш телефон">
+
+      <div class="button button_two bt_1"><p>ПОЛУЧИТЬ БЕСПЛАТНО</p></div>
+      <div class="bottom_form">Ваши контактные данные в безопасности</br>и не будут переданы третьим лицам</div>
+    </div>
+  </div>
+</div>
+
+<!-- Попап звонок -->
+<div class="disabled">
+  <div class="popup2">
+    <div class="form3">
+      <p class="form_title3">ЗАКАЖИТЕ ЗВОНОК</br><span>и наши специалисты свяжуться с</br>Вами в ближайшее время</span>
+      </p>
+      <input name="name_popup_2" type="text" placeholder="Введите Ваше имя">
+      <input name="phone_popup_2" type="text" placeholder="Введите Ваш телефон">
+
+      <div class="button button_two bt_2"><p>ЗАКАЗАТЬ ЗВОНОК</p></div>
+      <div class="bottom_form">Ваши контактные данные в безопасности</br>и не будут переданы третьим лицам</div>
+    </div>
+  </div>
+</div>
+
+<!-- Попап true -->
+<div class="disabled">
+  <div class="popup3">
+    <div class="form5">
+      <div class="okay"></div>
+      <h1>СПАСИБО</h1>
+
+      <p>Ваша заявка успешно принята!</p>
+
+      <p>Наши специалисты свяжуться с</br>Вами в ближайшее время</p>
+    </div>
+  </div>
+</div>
+
+<!-- Верхняя полоса -->
+{% if config.block1_visibility %}
+<div class="top_linear_block" style="background-color: {{ config.block1_background }}">
+  <div class="top_linear">
+    <img src="{{ config.block1_logo.url }}" class="logo_top_linear">
+
+    <div class="top_help">
+      {{ config.block1_text|safe }}
+    </div>
+    <span class="call_top_linear">
+      {{ config.block1_phone|safe }}
+    </span>
+
+    <div class="button button_one" style="background-color: {{ config.block1_button_color }}"><p>{{ config.block1_button_text|safe }}</p></div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Шапка -->
+{% if config.block2_visibility %}
+<div class="hats_block" style="background:url('{{ config.block2_background.url }}')no-repeat 50% center;">
+  <div class="hats">
+    <h1>{{ config.block2_text|safe }}</h1>
+
+    {% if config.block3_visibility %}
+    <div class="action">
+      <div class="act_decoration"></div>
+      <div class="action_left">
+        <div class="decoration_1" style="background:url('{{ config.block3_image.url }}')"><p>{{ config.block3_text|safe }}</p></div>
+        <ul>
+          {% if config.block3_item1 %}
+            <li style="background:url('{{ config.block3_list_icon.url }}')no-repeat;"><p>{{ config.block3_item1_text|safe }}</p></li>
+          {% endif %}
+          {% if config.block3_item2 %}
+            <li style="background:url('{{ config.block3_list_icon.url }}')no-repeat;"><p>{{ config.block3_item2_text|safe }}</p></li>
+          {% endif %}
+          {% if config.block3_item3 %}
+            <li style="background:url('{{ config.block3_list_icon.url }}')no-repeat;"><p>{{ config.block3_item3_text|safe }}</p></li>
+          {% endif %}
+        </ul>
+        <div class="title_action">До конца акции осталось:</div>
+        <div class="time hour"><p>{{ config.block3_time.hour }}</p></div>
+        <div class="time minutes"><p>{{ config.block3_time.minute }}</p></div>
+        <div class="time second"><p>{{ config.block3_time.second }}</p></div>
+        </br>
+        <div class="text_action">часов</div>
+        <div class="text_action text_action_2">минут</div>
+        <div class="text_action text_action_3">секунд</div>
+      </div>
+      {% if config.block4_visibility %}
+      <div class="form" style="background:{{ config.block4_back_color }};">
+        <div class="form_title">{{ config.block4_text|safe }}</div>
+        <input name="name_1" type="text" placeholder="Введите Ваше имя" style="background: {{ config.block4_field_color }};">
+        <input name="phone_1" type="text" placeholder="Введите Ваш телефон" style="background: {{ config.block4_field_color }};">
+
+        <div class="button button_two bt_3" style="background-color: {{ config.block4_button_color }}"><p>{{ config.block4_button_text|safe }}</p></div>
+        <div class="bottom_form">{{ config.block4_under_button_text|safe }}</div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Статистические данные -->
+{% if config.block5_visibility %}
+<div class="title">
+  <div class="title_1"><h2>{{ config.block5_text|safe }}</h2>
+
+    <div class="red"></div>
+  </div>
+</div>
+<div class="stats_block" style="background: url('{{ config.block5_back.url }}')no-repeat 50% center;">
+  <div class="stats">
+    <div class="stats_item stats_item_1"><span>1</span>
+
+      <p>{{ config.block5_item1_text|safe }}</p></div>
+    <div class="stats_item stats_item_2"><span>2</span>
+
+      <p>{{ config.block5_item2_text|safe }}</p></div>
+    <div class="stats_item stats_item_3"><span>3</span>
+
+      <p>{{ config.block5_item3_text|safe }}</p></div>
+    <div class="stats_item stats_item_4"><span>4</span>
+
+      <p>{{ config.block5_item4_text|safe }}</p></div>
+    {% if '6' in config.blocks %}
+    <div class="max">
+      <div class="decoration_2" style="background:url('{{ config.block6_back.url }}')no-repeat;">
+        <p>{{ config.block6_text|safe }}</p>
+      </div>
+      <span class="stast_mini_text">{{ config.block6_text2|safe }}</span>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Результат -->
+{% if config.block7_visibility %}
+<div class="rezult_block" style="background:url('{{ config.block7_back.url }}')no-repeat 50% center;">
+  <div class="rezult_linear_block">
+    <div class="rezult_linear">
+      <div class="title_2d"><h2>{{ config.block7_text|safe }}</h2>
+
+        <div class="red_2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="rezult">
+    <div class="rezult_item_block">
+      <div class="rezult_item rezult_item1">
+        <img src="{{ config.block7_item1_icon.url }}">
+
+        <p>{{ config.block7_item1_text|safe }}</p>
+      </div>
+      <div class="rezult_item rezult_item2">
+        <img src="{{ config.block7_item2_icon.url }}">
+
+        <p>{{ config.block7_item2_text|safe }}</p>
+      </div>
+      <div class="rezult_item rezult_item3">
+        <img src="{{ config.block7_item3_icon.url }}">
+
+        <p>{{ config.block7_item3_text|safe }}</p>
+      </div>
+      <div class="rezult_item rezult_item4">
+        <img src="{{ config.block7_item4_icon.url }}">
+
+        <p>{{ config.block7_item4_text|safe }}</p>
+      </div>
+      <div class="rezult_item rezult_item5">
+        <img src="{{ config.block7_item5_icon.url }}">
+
+        <p>{{ config.block7_item5_text|safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Сотрудничая с нами наши клиенты получают -->
+{% if config.block8_visibility %}
+<div class="client_polychayt_block" style="background:url('{{ config.block8_back.url }}');">
+  <div class="client_polychayt">
+    <h1>{{ config.block8_text|safe }}</h1>
+
+    <div class="client_polychayt_item client_polychayt_item1">
+      <img src="{{ config.block8_item1_icon.url }}">
+
+      <p>{{ config.block8_item1_text|safe }}</p>
+    </div>
+    <div class="client_polychayt_item client_polychayt_item2">
+      <img src="{{ config.block8_item2_icon.url }}">
+
+      <p>{{ config.block8_item2_text|safe }}</p>
+    </div>
+    <div class="client_polychayt_item client_polychayt_item3">
+      <img src="{{ config.block8_item3_icon.url }}">
+
+      <p>{{ config.block8_item3_text|safe }}</p>
+    </div>
+    <div class="client_polychayt_item client_polychayt_item4">
+      <img src="{{ config.block8_item4_icon.url }}">
+
+      <p>{{ config.block8_item4_text|safe }}</p>
+    </div>
+    <div class="client_polychayt_item client_polychayt_item5">
+      <img src="{{ config.block8_item5_icon.url }}">
+
+      <p>{{ config.block8_item5_text|safe }}</p>
+    </div>
+    <div class="button button_fre" style="background-color: {{ config.block8_button_color }}">
+      {{ config.block8_button_text|safe }}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Наши услуги -->
+{% if config.block9_visibility %}
+<div class="yslygi_block">
+  <div class="yslygi">
+    <div class="title_2"><h2>{{ config.block9_header|safe }}</h2>
+
+      <div class="red3"></div>
+    </div>
+    <div class="yslygi_title"><p>{{ config.block9_under_text|safe }}</p></div>
+    <div class="item_yslygi item_yslygi1">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>1</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item1_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg2">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>2</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item2_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg3">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>3</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item3_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg4">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>4</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item4_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg5">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>5</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item5_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg6">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>6</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item6_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg7">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>7</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item7_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg8">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>8</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item8_text|safe }}</span>
+    </div>
+    <div class="item_yslygi item_yslyg9">
+      <div class="kvadrat" style="background:{{ config.block9_item_color }};">
+        <div class="kvadrat_two"><p>9</p></div>
+      </div>
+      <span class="item_yslygi_text">{{ config.block9_item9_text|safe }}</span>
+    </div>
+    <div class="button button_fo" style="background-color: {{ config.block9_button_color }}">
+      {{ config.block9_button_text|safe }}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Большая форма акция -->
+{% if config.block10_visibility %}
+<div class="big_form_block" style="background:url('{{ config.block10_background.url }}')no-repeat 50% center;">
+  <div class="big_form">
+    <div class="action2">
+      <div class="act_decoration2"></div>
+      <div class="action_left1">
+        <div class="decoration_1" style="background: url('{{ config.block10_image.url }}')"><p>{{ config.block10_text|safe }}</p></div>
+        <ul>
+          {% if config.block10_item1 %}
+            <li style="background:url('{{ config.block10_list_icon.url }}')no-repeat;"><p>{{ config.block10_item1_text|safe }}</p></li>
+          {% endif %}
+          {% if config.block10_item2 %}
+            <li style="background:url('{{ config.block10_list_icon.url }}')no-repeat;"><p>{{ config.block10_item2_text|safe }}</p></li>
+          {% endif %}
+          {% if config.block10_item3 %}
+            <li style="background:url('{{ config.block10_list_icon.url }}')no-repeat;"><p>{{ config.block10_item3_text|safe }}</p></li>
+          {% endif %}
+        </ul>
+        <div class="title_action">До конца акции осталось:</div>
+        <div class="time hour1 time1"><p id="time_hour">{{ config.block10_time.hour }}</p></div>
+        <div class="time minutes1"><p id="time_minutes">{{ config.block10_time.minute }}</p></div>
+        <div class="time second1"><p id="time_second">{{ config.block10_time.second }}</p></div>
+        </br>
+        <div class="text_action text_action_1">часов</div>
+        <div class="text_action text_action_2">минут</div>
+        <div class="text_action text_action_3">секунд</div>
+      </div>
+      <div class="form1" style="border-color:{{ config.block10_back_color }};">
+        <div class="form_title1">{{ config.block10_text1|safe }}</div>
+        <input name="name_2" type="text" placeholder="Введите Ваше имя" style="background: {{ config.block10_field_color }};">
+        <input name="phone_2" type="text" placeholder="Введите Ваш телефон" style="background: {{ config.block10_field_color }};">
+
+        <div class="button button_two bt_4" style="background-color: {{ config.block10_button_color }}"><p>{{ config.block10_button_text|safe }}</p></div>
+        <div class="bottom_form">{{ config.block10_under_button_text|safe }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- О нас в цифрах -->
+{% if config.block11_visibility %}
+<div class="cifri_block" style="background:{{ config.block11_back_color }};">
+  <div class="cifri">
+    <div class="title_3"><h2>{{ config.block11_text|safe }}</h2>
+
+      <div class="red4"></div>
+    </div>
+    <div class="cifri_item cifri_item1">
+      <div class="bg_cifri_item" style="background: {{ config.block11_square_color }};">
+        <div class="cifr_krug cifr_krug1">
+          <div style="color: {{ config.block11_number_color }};">{{ config.block11_item1_number|safe }}</div>
+        </div>
+      </div>
+      <div class="cifri_item_p">{{ config.block11_item1_text|safe }}</div>
+    </div>
+    <div class="cifri_item cifri_item2">
+      <div class="bg_cifri_item" style="background: {{ config.block11_square_color }};">
+        <div class="cifr_krug cifr_krug2">
+          <div style="color: {{ config.block11_number_color }};">{{ config.block11_item2_number|safe }}</div>
+        </div>
+      </div>
+      <div class="cifri_item_p">{{ config.block11_item2_text|safe }}</div>
+    </div>
+    <div class="cifri_item cifri_item3">
+      <div class="bg_cifri_item" style="background: {{ config.block11_square_color }};">
+        <div class="cifr_krug">
+          <div style="color: {{ config.block11_number_color }};">{{ config.block11_item3_number|safe }}</div>
+          <span class="mini_text_cifr" style="color: {{ config.block11_number_color }};">года</span>
+        </div>
+      </div>
+      <div class="cifri_item_p">{{ config.block11_item3_text|safe }}</div>
+    </div>
+    <div class="cifri_item cifri_item4">
+      <div class="bg_cifri_item" style="background: {{ config.block11_square_color }};">
+        <div class="cifr_krug">
+          <div style="color: {{ config.block11_number_color }};">{{ config.block11_item4_number|safe }}</div>
+          <span class="mini_text_cifr2" style="color: {{ config.block11_number_color }};">месяца</span>
+        </div>
+      </div>
+      <div class="cifri_item_p">{{ config.block11_item4_text|safe }}</div>
+    </div>
+    <div class="cifri_item cifri_item5">
+      <div class="bg_cifri_item" style="background: {{ config.block11_square_color }};">
+        <div class="cifr_krug">
+          <div style="color: {{ config.block11_number_color }};">{{ config.block11_item5_number|safe }}</div>
+          <span class="mini_text_cifr3" style="color: {{ config.block11_number_color }};">дней</span>
+        </div>
+      </div>
+      <div class="cifri_item_p">{{ config.block11_item5_text|safe }}</div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Как мы работаем -->
+{% if config.block12_visibility %}
+<div class="kak_mi_rabotaem_block" style="background: url('{{ config.block12_back.url }}')">
+  <div class="kak_mi_rabotaem">
+    <div class="title_6"><h2>{{ config.block12_text|safe }}</h2>
+
+      <div class="red7"></div>
+    </div>
+    <div class="kak_rab kak_rab1"><p>{{ config.block12_item1_text|safe }}</p></div>
+    <div class="kak_rab kak_rab2"><p>{{ config.block12_item2_text|safe }}</p></div>
+    <div class="kak_rab kak_rab3"><p>{{ config.block12_item3_text|safe }}</p></div>
+    <div class="kak_rab_two kak_rab_two1"><p>{{ config.block12_item4_text|safe }}</p></div>
+    <div class="kak_rab_two kak_rab_two2"><p>{{ config.block12_item5_text|safe }}</p></div>
+    <div class="kak_mi_rabotaem_b" style="background: url('{{ config.block12_image.url }}')no-repeat 50% center;"></div>
+    <div class="button button_five" style="background-color: {{ config.block12_button_color }};"><p>{{ config.block12_button_text|safe }}</p></div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Отзывы наших клиентов -->
+{% if config.block13_visibility %}
+<div class="otzivi_block">
+  <div class="otzivi">
+    <div class="title_5"><h2>{{ config.block13_header|safe }}</h2>
+
+      <div class="red5"></div>
+    </div>
+    <div class="otzivi_item">
+      <div class="ava" style="background: url('{{ config.block13_image1.url }}')no-repeat;"></div>
+      <div class="text_com">
+        <div class="com_tr"></div>
+        <div class="h1">{{ config.block13_fio1|safe }}</div>
+
+        <div class="h2">{{ config.block13_event1|safe }}</div>
+
+        <p>{{ config.block13_text1|safe }}</p>
+      </div>
+    </div>
+
+    <div class="otzivi_item">
+      <div class="ava3" style="background: url('{{ config.block13_image2.url }}')no-repeat;"></div>
+      <div class="text_com">
+        <div class="com_tr"></div>
+        <div class="h1">{{ config.block13_fio2|safe }}</div>
+
+        <div class="h2">{{ config.block13_event2|safe }}</div>
+
+        <p>{{ config.block13_text2|safe }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}
+
+<!-- Наши партнеры -->
+{% if config.block14_visibility %}
+<div class="partneri_block">
+  <div class="partneri">
+    <div class="title_4"><h2>{{ config.block14_header|safe }}</h2>
+
+      <div class="red6"></div>
+    </div>
+    {% for partner in partners %}
+      <div class="partneri_item ">
+        <img src="{{ partner.image.url }}" alt="{{ partner.title|safe }}"/>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Футер -->
+{% if config.block15_visibility %}
+<div class="footer_block" style="background: url('{{ config.block15_back.url }}')no-repeat 50% center;">
+  <div class="footer">
+    <div class="logo_footer"><img src="{{ config.block15_logo.url }}" class="footer_logo"></div>
+    <h1>{{ config.block15_text|safe }}</h1>
+
+    <div class="button button_footer" style="background-color: {{ config.block15_button_color }};"><p>{{ config.block15_button_text|safe }}</p></div>
+    <span class="footer_call">{{ config.block15_phone|safe }}</span>
+    <span class="bottom_text">{{ config.block15_under_phone_text|safe }}</span>
+  </div>
+</div>
+{% endif %}
+
+{% comment %}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function () {
+      try {
+        w.yaCounter25531454 = new Ya.Metrika({id: 25531454,
+          webvisor: true,
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true});
+      } catch (e) {
+      }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () {
+              n.parentNode.insertBefore(s, n);
+            };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+    } else {
+      f();
+    }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+  <div><img src="http://mc.yandex.ru/watch/25531454" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+{% endcomment %}
+</body>
+</html>
